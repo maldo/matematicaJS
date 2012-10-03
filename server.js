@@ -6,13 +6,13 @@ function start(operation, method) {
 		var postData = '';
 		var pathname = url.parse(request.url).pathname.split("/")[1];
 
-		console.log("Request for " + pathname + " received.");
+		//console.log("Request for " + pathname + " received.");
 
 		request.setEncoding("utf8");
 
 		request.addListener("data", function(postDataChunk) {
 			postData += postDataChunk;
-			console.log("Received POST data chunk '" + postDataChunk + "'.");
+			//console.log("Received POST data chunk '" + postDataChunk + "'.");
 		});
 
 		request.addListener("end", function() {
@@ -23,7 +23,7 @@ function start(operation, method) {
 
 				operation[pathname](nums, function(total) {
 
-					method.sendData(response, total);
+				method.sendData(response, total);
 
 				});
 			} catch (e) {
@@ -33,8 +33,8 @@ function start(operation, method) {
 
 	}
 
-	http.createServer(onRequest).listen(8888);
-	console.log("Server has started.");
+	http.createServer(onRequest).listen(process.env.PORT || 8888);
+	//console.log("Server has started.");
 }
 
 exports.start = start;

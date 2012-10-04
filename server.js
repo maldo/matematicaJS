@@ -6,7 +6,7 @@ function start(operation, method) {
 		var postData = '';
 		var pathname = url.parse(request.url).pathname.split("/")[1];
 
-		//console.log("Request for " + pathname + " received.");
+		console.log("Request for " + pathname + " received.");
 
 		request.setEncoding("utf8");
 

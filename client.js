@@ -1,19 +1,27 @@
 var http = require("http");
 
-var options = {
-	host : 'localhost',
-	port : 8888,
+var optionsAzure = {
+	host : '192.168.7.13',
+	port : 80,
 	method : 'POST',
-	path : '/add',
+	path : 'http://matematica.azurewebsites.net/add',
 	headers : {}
 };
+
+var options = {
+		host : 'localhost',
+		port : 8888,
+		method : 'POST',
+		path : '/add',
+		headers : {}
+	};
 
 var data = JSON.stringify([5, 6]);
 
 options.headers['Content-Type'] = 'application/json';
 options.headers['Content-Length'] = data.length;
 
-var req = http.request(options, function(response) {
+var req = http.request(optionsAzure, function(response) {
 	console.log('STATUS: ' + response.statusCode);
 	console.log('HEADERS: ' + JSON.stringify(response.headers));
 	var responseData = '';

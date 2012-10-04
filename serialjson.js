@@ -9,7 +9,7 @@ var sendData = function(response, total) {
 		'Content-Type' : 'application/json'
 	});
 	response.write(x);
-	response.end('end!');
+	response.end();
 };
 
 exports.requestData = requestData;
